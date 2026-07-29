@@ -1,66 +1,26 @@
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Box,
-  IconButton,
-  Avatar,
-  Badge,
-} from "@mui/material";
+import { AppBar, Toolbar, Typography, Avatar, Box } from "@mui/material";
 
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-
-function Header() {
+export default function Header() {
   return (
     <AppBar
       position="fixed"
       elevation={1}
       sx={{
-        backgroundColor: "#fff",
-        color: "#222",
+        bgcolor: "#fff",
+        color: "#111827",
         zIndex: 1300,
       }}
     >
       <Toolbar>
-
-        <Typography
-          variant="h5"
-          sx={{
-            fontWeight: "bold",
-            color: "#1565C0",
-          }}
-        >
+        <Typography variant="h6" fontWeight="bold" sx={{ flexGrow: 1 }}>
           ARRIVE Analytics Hub
         </Typography>
 
-        <Box sx={{ flexGrow: 1 }} />
-
-        <Badge
-          badgeContent={3}
-          color="error"
-          sx={{ mr: 2 }}
-        >
-          <IconButton>
-            <NotificationsNoneIcon />
-          </IconButton>
-        </Badge>
-
-        <Avatar
-          sx={{
-            bgcolor: "#1565C0",
-            mr: 1,
-          }}
-        >
-          M
-        </Avatar>
-
-        <Typography fontWeight="bold">
-          Mohamed
-        </Typography>
-
+        <Box display="flex" alignItems="center" gap={2}>
+          <Typography>Mohamed</Typography>
+          <Avatar sx={{ bgcolor: "#1565C0" }}>M</Avatar>
+        </Box>
       </Toolbar>
     </AppBar>
   );
 }
-
-export default Header;

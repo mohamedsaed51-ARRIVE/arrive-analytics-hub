@@ -1,86 +1,62 @@
-import { Container, Typography, Grid } from "@mui/material";
-import DashboardCard from "../components/DashboardCard";
-import dashboards from "../data/dashboards";
+import { Box, Grid, Typography } from "@mui/material";
+
 import StatCard from "../components/StatCard";
+import DashboardCard from "../components/DashboardCard";
 
-function Home() {
-  const activeDashboards = dashboards.filter(
-    (dashboard) => dashboard.status === "active"
-  );
+import dashboards from "../data/dashboards";
 
-  const comingSoonDashboards = dashboards.filter(
-    (dashboard) => dashboard.status === "soon"
-  );
-
+export default function Home() {
   return (
-    <Container sx={{ mt: 5 }}>
+    <Box
+      sx={{
+        ml: "240px",
+        mt: "64px",
+        p: 4,
+        background: "#F4F7FC",
+        minHeight: "100vh",
+      }}
+    >
       <Typography variant="h4" fontWeight="bold">
-        Executive Control Center
+        Executive Dashboard
       </Typography>
 
       <Typography color="text.secondary" mb={4}>
-        Welcome to ARRIVE Executive Dashboards
+        Welcome to ARRIVE Analytics Hub
       </Typography>
 
       <Grid container spacing={3} mb={5}>
-  <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-    <StatCard
-      title="Dashboards"
-      value={dashboards.length}
-      color="#1976d2"
-    />
-  </Grid>
+        <Grid item xs={12} md={3}>
+          <StatCard title="Dashboards" value="6" />
+        </Grid>
 
-  <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-    <StatCard
-      title="Active"
-      value={activeDashboards.length}
-      color="#2e7d32"
-    />
-  </Grid>
+        <Grid item xs={12} md={3}>
+          <StatCard title="Active" value="3" color="#2E7D32" />
+        </Grid>
 
-  <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-    <StatCard
-      title="Coming Soon"
-      value={comingSoonDashboards.length}
-      color="#ed6c02"
-    />
-  </Grid>
+        <Grid item xs={12} md={3}>
+          <StatCard title="Coming Soon" value="3" color="#ED6C02" />
+        </Grid>
 
-  <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-    <StatCard
-      title="Last Update"
-      value="Today"
-      color="#7b1fa2"
-    />
-  </Grid>
-</Grid>
+        <Grid item xs={12} md={3}>
+          <StatCard title="Last Update" value="Today" />
+        </Grid>
+      </Grid>
 
-      <Typography variant="h5" mb={2}>
-        Active Dashboards
+      <Typography variant="h5" fontWeight="bold" mb={3}>
+        Dashboards
       </Typography>
 
       <Grid container spacing={3}>
-        {activeDashboards.map((dashboard) => (
-          <Grid key={dashboard.id} size={{ xs: 12, md: 4 }}>
-            <DashboardCard dashboard={dashboard} />
+        {dashboards.map((dashboard) => (
+          <Grid item xs={12} md={4} key={dashboard.id}>
+            <DashboardCard
+              title={dashboard.title}
+              description={dashboard.description}
+              status={dashboard.status}
+            />
           </Grid>
         ))}
       </Grid>
-
-      <Typography variant="h5" mt={6} mb={2}>
-        Coming Soon
-      </Typography>
-
-      <Grid container spacing={3}>
-        {comingSoonDashboards.map((dashboard) => (
-          <Grid key={dashboard.id} size={{ xs: 12, md: 4 }}>
-            <DashboardCard dashboard={dashboard} />
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+    </Box>
   );
 }
-
-export default Home;

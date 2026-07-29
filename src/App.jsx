@@ -1,29 +1,29 @@
-import { Box, Toolbar } from "@mui/material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 
 import Home from "./pages/Home";
+import Landing from "./pages/Landing";
 
 function App() {
   return (
-    <Box sx={{ display: "flex" }}>
-      <Header />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
 
-      <Sidebar />
-
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          p: 3,
-        }}
-      >
-        <Toolbar />
-
-        <Home />
-      </Box>
-    </Box>
+        <Route
+          path="/home"
+          element={
+            <>
+              <Header />
+              <Sidebar />
+              <Home />
+            </>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

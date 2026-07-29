@@ -1,31 +1,30 @@
 import { Card, CardContent, Typography } from "@mui/material";
 
-function StatCard({ title, value, color }) {
+export default function StatCard({
+  title,
+  value,
+  color = "#1565C0",
+}) {
   return (
     <Card
-      elevation={3}
       sx={{
-        borderLeft: `6px solid ${color}`,
+        borderTop: `5px solid ${color}`,
         borderRadius: 3,
       }}
     >
       <CardContent>
-        <Typography
-          variant="h4"
-          fontWeight="bold"
-        >
-          {value}
+        <Typography color="text.secondary">
+          {title}
         </Typography>
 
         <Typography
-          color="text.secondary"
-          sx={{ mt: 1 }}
+          variant="h4"
+          fontWeight="bold"
+          mt={1}
         >
-          {title}
+          {value}
         </Typography>
       </CardContent>
     </Card>
   );
 }
-
-export default StatCard;

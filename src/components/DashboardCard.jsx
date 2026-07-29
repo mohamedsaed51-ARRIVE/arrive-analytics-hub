@@ -2,43 +2,54 @@ import {
   Card,
   CardContent,
   Typography,
-  Button,
   Chip,
-  Box,
+  Button,
 } from "@mui/material";
 
-function DashboardCard({ dashboard }) {
-  const active = dashboard.status === "active";
-
+export default function DashboardCard({
+  title,
+  description,
+  status,
+}) {
   return (
-    <Card elevation={4}>
+    <Card
+      sx={{
+        height: "100%",
+        borderRadius: 3,
+      }}
+    >
       <CardContent>
-        <Typography variant="h6">
-          {dashboard.title}
+        <Typography
+          variant="h6"
+          fontWeight="bold"
+        >
+          {title}
         </Typography>
 
-        <Typography sx={{ mt: 1 }}>
-          {dashboard.description}
+        <Typography
+          mt={1}
+          color="text.secondary"
+        >
+          {description}
         </Typography>
 
         <Chip
-          label={active ? "Active" : "Coming Soon"}
-          color={active ? "success" : "warning"}
-          sx={{ mt: 2 }}
+          sx={{ mt: 3 }}
+          label={status === "active" ? "Active" : "Coming Soon"}
+          color={status === "active" ? "success" : "warning"}
         />
 
-        <Box mt={2}>
-          <Button
-            variant={active ? "contained" : "outlined"}
-            disabled={!active}
-            fullWidth
-          >
-            {active ? "Open Dashboard" : "Coming Soon"}
-          </Button>
-        </Box>
+        <Button
+          fullWidth
+          variant="contained"
+          disabled={status !== "active"}
+          sx={{ mt: 3 }}
+        >
+          {status === "active"
+            ? "Open Dashboard"
+            : "Coming Soon"}
+        </Button>
       </CardContent>
     </Card>
   );
 }
-
-export default DashboardCard;

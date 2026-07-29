@@ -5,13 +5,10 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Divider,
-  Typography,
-  Box,
 } from "@mui/material";
 
-import HomeIcon from "@mui/icons-material/Home";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import HomeIcon from "@mui/icons-material/Home";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import SettingsIcon from "@mui/icons-material/Settings";
 
@@ -23,38 +20,21 @@ export default function Sidebar() {
       variant="permanent"
       sx={{
         width: drawerWidth,
+        flexShrink: 0,
+
         "& .MuiDrawer-paper": {
           width: drawerWidth,
           boxSizing: "border-box",
-          background: "#0F172A",
-          color: "white",
+          background: "#111827",
+          color: "#fff",
         },
       }}
     >
       <Toolbar />
 
-      <Box sx={{ p: 3 }}>
-        <Typography
-          variant="h6"
-          fontWeight="bold"
-        >
-          ARRIVE
-        </Typography>
-
-        <Typography
-          variant="body2"
-          sx={{ opacity: .7 }}
-        >
-          Executive Platform
-        </Typography>
-      </Box>
-
-      <Divider sx={{ bgcolor: "#334155" }} />
-
       <List>
-
         <ListItemButton selected>
-          <ListItemIcon sx={{ color: "white" }}>
+          <ListItemIcon sx={{ color: "#fff" }}>
             <HomeIcon />
           </ListItemIcon>
 
@@ -62,7 +42,7 @@ export default function Sidebar() {
         </ListItemButton>
 
         <ListItemButton>
-          <ListItemIcon sx={{ color: "white" }}>
+          <ListItemIcon sx={{ color: "#fff" }}>
             <DashboardIcon />
           </ListItemIcon>
 
@@ -70,7 +50,7 @@ export default function Sidebar() {
         </ListItemButton>
 
         <ListItemButton>
-          <ListItemIcon sx={{ color: "white" }}>
+          <ListItemIcon sx={{ color: "#fff" }}>
             <AssessmentIcon />
           </ListItemIcon>
 
@@ -78,15 +58,13 @@ export default function Sidebar() {
         </ListItemButton>
 
         <ListItemButton>
-          <ListItemIcon sx={{ color: "white" }}>
+          <ListItemIcon sx={{ color: "#fff" }}>
             <SettingsIcon />
           </ListItemIcon>
 
           <ListItemText primary="Settings" />
         </ListItemButton>
-
       </List>
-
     </Drawer>
   );
 }

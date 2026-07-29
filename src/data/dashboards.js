@@ -2,37 +2,37 @@ const dashboards = [
   {
     id: 1,
     title: "Branch Inventory",
-    description: "متابعة نتائج الجرد اليومي للفروع",
+    description: "Daily Branch Inventory Audit",
     status: "active",
   },
   {
     id: 2,
     title: "Shipment Age",
-    description: "تحليل عمر الشحنات الحرجة",
+    description: "Shipment Age Analysis",
     status: "active",
   },
   {
     id: 3,
     title: "Fleet Dashboard",
-    description: "تحليل أداء الأسطول",
+    description: "Fleet Performance Dashboard",
     status: "active",
   },
   {
     id: 4,
     title: "Complaints Dashboard",
-    description: "تحليل شكاوى العملاء",
+    description: "Customer Complaints Dashboard",
     status: "soon",
   },
   {
     id: 5,
     title: "AI Insights",
-    description: "ذكاء اصطناعي لتحليل الأداء",
+    description: "AI Executive Analytics",
     status: "soon",
   },
   {
     id: 6,
     title: "KPI Dashboard",
-    description: "مؤشرات الأداء الرئيسية",
+    description: "Executive KPI Dashboard",
     status: "soon",
   },
 ];
