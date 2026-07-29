@@ -1,7 +1,15 @@
-import { Box, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Grid,
+  Card,
+  CardContent,
+  Button,
+  Chip,
+  TextField,
+} from "@mui/material";
 
-import StatCard from "../components/StatCard";
-import DashboardCard from "../components/DashboardCard";
+import SearchIcon from "@mui/icons-material/Search";
 
 import dashboards from "../data/dashboards";
 
@@ -9,51 +17,104 @@ export default function Home() {
   return (
     <Box
       sx={{
-        ml: "240px",
-        mt: "64px",
-        p: 4,
-        background: "#F4F7FC",
         minHeight: "100vh",
+        bgcolor: "#F4F7FC",
+        p: 5,
       }}
     >
-      <Typography variant="h4" fontWeight="bold">
-        Executive Dashboard
+      {/* Header */}
+
+      <Typography
+        variant="h3"
+        fontWeight="bold"
+        textAlign="center"
+      >
+        ARRIVE Analytics Hub
       </Typography>
 
-      <Typography color="text.secondary" mb={4}>
-        Welcome to ARRIVE Analytics Hub
+      <Typography
+        textAlign="center"
+        color="text.secondary"
+        mt={1}
+        mb={4}
+      >
+        Executive Control Center
       </Typography>
 
-      <Grid container spacing={3} mb={5}>
-        <Grid item xs={12} md={3}>
-          <StatCard title="Dashboards" value="6" />
-        </Grid>
+      {/* Search */}
 
-        <Grid item xs={12} md={3}>
-          <StatCard title="Active" value="3" color="#2E7D32" />
-        </Grid>
+      <TextField
+        fullWidth
+        placeholder="Search Dashboard..."
+        InputProps={{
+          startAdornment: <SearchIcon sx={{ mr: 1 }} />,
+        }}
+        sx={{
+          mb: 5,
+          bgcolor: "#fff",
+        }}
+      />
 
-        <Grid item xs={12} md={3}>
-          <StatCard title="Coming Soon" value="3" color="#ED6C02" />
-        </Grid>
-
-        <Grid item xs={12} md={3}>
-          <StatCard title="Last Update" value="Today" />
-        </Grid>
-      </Grid>
+      {/* Section */}
 
       <Typography variant="h5" fontWeight="bold" mb={3}>
-        Dashboards
+        Executive Dashboards
       </Typography>
 
       <Grid container spacing={3}>
-        {dashboards.map((dashboard) => (
-          <Grid item xs={12} md={4} key={dashboard.id}>
-            <DashboardCard
-              title={dashboard.title}
-              description={dashboard.description}
-              status={dashboard.status}
-            />
+        {dashboards.map((item) => (
+          <Grid item xs={12} md={4} key={item.id}>
+            <Card
+              sx={{
+                borderRadius: 4,
+                transition: ".3s",
+
+                "&:hover": {
+                  transform: "translateY(-6px)",
+                },
+              }}
+            >
+              <CardContent>
+                <Typography
+                  variant="h6"
+                  fontWeight="bold"
+                >
+                  {item.title}
+                </Typography>
+
+                <Typography
+                  color="text.secondary"
+                  mt={1}
+                  mb={3}
+                >
+                  {item.description}
+                </Typography>
+
+                <Chip
+                  label={
+                    item.status === "active"
+                      ? "Active"
+                      : "Coming Soon"
+                  }
+                  color={
+                    item.status === "active"
+                      ? "success"
+                      : "warning"
+                  }
+                />
+
+                <Button
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3 }}
+                  disabled={item.status !== "active"}
+                >
+                  {item.status === "active"
+                    ? "Open Dashboard"
+                    : "Coming Soon"}
+                </Button>
+              </CardContent>
+            </Card>
           </Grid>
         ))}
       </Grid>
