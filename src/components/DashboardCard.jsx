@@ -2,53 +2,70 @@ import {
   Card,
   CardContent,
   Typography,
-  Chip,
   Button,
+  Chip,
+  Box
 } from "@mui/material";
 
-export default function DashboardCard({
-  title,
-  description,
-  status,
-}) {
+import LaunchIcon from "@mui/icons-material/Launch";
+
+export default function DashboardCard({ dashboard }) {
+  const active = dashboard.status === "active";
+
   return (
     <Card
+      elevation={3}
       sx={{
-        height: "100%",
-        borderRadius: 3,
+        borderRadius: 4,
+        transition: ".3s",
+
+        "&:hover": {
+          transform: "translateY(-8px)",
+          boxShadow: 8
+        }
       }}
     >
       <CardContent>
+
         <Typography
           variant="h6"
           fontWeight="bold"
         >
-          {title}
+          {dashboard.icon} {dashboard.title}
         </Typography>
 
         <Typography
-          mt={1}
           color="text.secondary"
+          mt={1}
+          mb={3}
         >
-          {description}
+          {dashboard.description}
         </Typography>
 
-        <Chip
-          sx={{ mt: 3 }}
-          label={status === "active" ? "Active" : "Coming Soon"}
-          color={status === "active" ? "success" : "warning"}
-        />
-
-        <Button
-          fullWidth
-          variant="contained"
-          disabled={status !== "active"}
-          sx={{ mt: 3 }}
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
         >
-          {status === "active"
-            ? "Open Dashboard"
-            : "Coming Soon"}
-        </Button>
+          <Chip
+            label={active ? "Active" : "Coming Soon"}
+            color={active ? "success" : "warning"}
+          />
+
+          <Button
+            variant="contained"
+            disabled={!active}
+            endIcon={<LaunchIcon />}
+            onClick={() => {
+              if (active && dashboard.url) {
+                window.open(dashboard.url, "_blank");
+              }
+            }}
+          >
+            Open
+          </Button>
+        </Box>
+
       </CardContent>
     </Card>
   );
