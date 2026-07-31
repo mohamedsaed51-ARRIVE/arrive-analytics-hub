@@ -1,19 +1,22 @@
-import {
-  Box,
-  Typography,
-  Grid,
-  Paper,
-  TextField,
-  InputAdornment
-} from "@mui/material";
-
-import SearchIcon from "@mui/icons-material/Search";
-import DashboardCard from "../components/DashboardCard";
-import dashboards from "../data/dashboards";
 import { useState } from "react";
 
-export default function Home() {
+import {
+  Box,
+  Grid,
+  Typography,
+} from "@mui/material";
 
+import Header from "../components/Header";
+import DashboardCard from "../components/DashboardCard";
+import StatCard from "../components/StatCard";
+import dashboards from "../data/dashboards";
+
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import ScheduleIcon from "@mui/icons-material/Schedule";
+import UpdateIcon from "@mui/icons-material/Update";
+
+export default function Home() {
   const [search, setSearch] = useState("");
 
   const filtered = dashboards.filter((d) =>
@@ -21,98 +24,101 @@ export default function Home() {
   );
 
   const total = dashboards.length;
-  const active = dashboards.filter(d => d.status === "active").length;
+  const active = dashboards.filter(
+    (d) => d.status === "active"
+  ).length;
   const coming = total - active;
 
   return (
-    <Box sx={{ p: 5, background: "#F4F7FC", minHeight: "100vh" }}>
-
-      <Typography variant="h3" fontWeight="bold">
-        ARRIVE Analytics Hub
-      </Typography>
-
-      <Typography color="text.secondary" mb={4}>
-        Executive Control Center
-      </Typography>
-
-      <Grid container spacing={3} mb={4}>
-
-        <Grid item xs={12} md={3}>
-          <Paper sx={{p:3,borderRadius:3}}>
-            <Typography color="text.secondary">
-              Dashboards
-            </Typography>
-
-            <Typography variant="h3" fontWeight="bold">
-              {total}
-            </Typography>
-          </Paper>
-        </Grid>
-
-        <Grid item xs={12} md={3}>
-          <Paper sx={{p:3,borderRadius:3}}>
-            <Typography color="text.secondary">
-              Active
-            </Typography>
-
-            <Typography variant="h3" color="green">
-              {active}
-            </Typography>
-          </Paper>
-        </Grid>
-
-        <Grid item xs={12} md={3}>
-          <Paper sx={{p:3,borderRadius:3}}>
-            <Typography color="text.secondary">
-              Coming Soon
-            </Typography>
-
-            <Typography variant="h3" color="orange">
-              {coming}
-            </Typography>
-          </Paper>
-        </Grid>
-
-        <Grid item xs={12} md={3}>
-          <Paper sx={{p:3,borderRadius:3}}>
-            <Typography color="text.secondary">
-              Last Update
-            </Typography>
-
-            <Typography variant="h5">
-              Today
-            </Typography>
-          </Paper>
-        </Grid>
-
-      </Grid>
-
-      <TextField
-        fullWidth
-        placeholder="Search Dashboard..."
-        value={search}
-        onChange={(e)=>setSearch(e.target.value)}
-        sx={{mb:5}}
-
-        InputProps={{
-          startAdornment:(
-            <InputAdornment position="start">
-              <SearchIcon/>
-            </InputAdornment>
-          )
-        }}
+    <>
+      <Header
+        search={search}
+        setSearch={setSearch}
       />
 
-      <Grid container spacing={3}>
+      <Box
+        sx={{
+          background: "#F4F7FC",
+          minHeight: "100vh",
+          p: 4,
+        }}
+      >
+        <Typography
+          variant="h4"
+          fontWeight={700}
+          mb={1}
+        >
+          Executive Control Center
+        </Typography>
 
-        {filtered.map((dashboard)=>(
-          <Grid item xs={12} md={4} lg={3} key={dashboard.id}>
-            <DashboardCard dashboard={dashboard}/>
+        <Typography
+          color="text.secondary"
+          mb={4}
+        >
+          Manage all ARRIVE executive dashboards from one platform.
+        </Typography>
+
+        <Grid container spacing={3} mb={5}>
+          <Grid item xs={12} sm={6} md={3}>
+            <StatCard
+              icon={<DashboardIcon />}
+              title="Dashboards"
+              value={total}
+              color="#07269B"
+            />
           </Grid>
-        ))}
 
-      </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <StatCard
+              icon={<CheckCircleIcon />}
+              title="Active"
+              value={active}
+              color="#16A34A"
+            />
+          </Grid>
 
-    </Box>
+          <Grid item xs={12} sm={6} md={3}>
+            <StatCard
+              icon={<ScheduleIcon />}
+              title="Coming Soon"
+              value={coming}
+              color="#F59E0B"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={3}>
+            <StatCard
+              icon={<UpdateIcon />}
+              title="Last Update"
+              value="Today"
+              color="#22C7D9"
+            />
+          </Grid>
+        </Grid>
+
+        <Typography
+          variant="h5"
+          fontWeight={700}
+          mb={3}
+        >
+          Executive Dashboards
+        </Typography>
+
+        <Grid container spacing={3}>
+          {filtered.map((dashboard) => (
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              key={dashboard.id}
+            >
+              <DashboardCard dashboard={dashboard} />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </>
   );
 }

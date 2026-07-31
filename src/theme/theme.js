@@ -3,33 +3,56 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#1565C0",
+      main: "#07269B",
     },
 
     secondary: {
-      main: "#0F172A",
+      main: "#22C7D9",
     },
 
     background: {
-      default: "#F4F7FC",
+      default: "#F6F8FC",
       paper: "#FFFFFF",
     },
 
+    text: {
+      primary: "#1F2937",
+      secondary: "#64748B",
+    },
+
     success: {
-      main: "#2E7D32",
+      main: "#16A34A",
     },
 
     warning: {
-      main: "#ED6C02",
+      main: "#F59E0B",
     },
   },
 
   typography: {
-    fontFamily: "Roboto, Arial",
+    fontFamily:
+      '"Inter","Segoe UI","Roboto","Arial",sans-serif',
+
+    h3: {
+      fontWeight: 700,
+    },
+
+    h4: {
+      fontWeight: 700,
+    },
+
+    h5: {
+      fontWeight: 600,
+    },
+
+    button: {
+      textTransform: "none",
+      fontWeight: 600,
+    },
   },
 
   shape: {
-    borderRadius: 14,
+    borderRadius: 18,
   },
 });
 
