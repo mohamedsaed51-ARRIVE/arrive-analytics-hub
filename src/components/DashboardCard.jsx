@@ -5,6 +5,7 @@ import {
   Button,
   Chip,
   Box,
+  Divider,
 } from "@mui/material";
 
 import LaunchIcon from "@mui/icons-material/Launch";
@@ -19,16 +20,22 @@ function getIcon(name) {
   switch (name) {
     case "inventory":
       return <Inventory2Icon sx={{ fontSize: 34 }} />;
+
     case "shipping":
       return <LocalShippingIcon sx={{ fontSize: 34 }} />;
+
     case "fleet":
       return <DirectionsCarIcon sx={{ fontSize: 34 }} />;
+
     case "kpi":
       return <AnalyticsIcon sx={{ fontSize: 34 }} />;
+
     case "ai":
       return <AutoAwesomeIcon sx={{ fontSize: 34 }} />;
+
     case "support":
       return <SupportAgentIcon sx={{ fontSize: 34 }} />;
+
     default:
       return <AnalyticsIcon sx={{ fontSize: 34 }} />;
   }
@@ -45,10 +52,11 @@ export default function DashboardCard({ dashboard }) {
         border: "1px solid #E5E7EB",
         height: "100%",
         transition: ".35s",
+        overflow: "hidden",
 
         "&:hover": {
           transform: "translateY(-8px)",
-          boxShadow: "0 18px 35px rgba(7,38,155,.12)",
+          boxShadow: "0 18px 40px rgba(7,38,155,.12)",
           borderColor: "#22C7D9",
         },
       }}
@@ -61,33 +69,42 @@ export default function DashboardCard({ dashboard }) {
           height: "100%",
         }}
       >
+        {/* Header */}
+
         <Box
-          sx={{
-            width: 64,
-            height: 64,
-            borderRadius: 4,
-            background:
-              "linear-gradient(135deg,#07269B,#22C7D9)",
-            color: "#fff",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            mb: 3,
-          }}
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          mb={3}
         >
-          {getIcon(dashboard.icon)}
+          <Box
+            sx={{
+              width: 64,
+              height: 64,
+              borderRadius: 4,
+              background:
+                "linear-gradient(135deg,#07269B,#22C7D9)",
+              color: "#fff",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {getIcon(dashboard.icon)}
+          </Box>
+
+          <Chip
+            size="small"
+            label={dashboard.category}
+            sx={{
+              bgcolor: "#EEF6FF",
+              color: "#07269B",
+              fontWeight: 700,
+            }}
+          />
         </Box>
 
-        <Typography
-          sx={{
-            color: "#22C7D9",
-            fontWeight: 700,
-            fontSize: 13,
-            mb: .5,
-          }}
-        >
-          {dashboard.category}
-        </Typography>
+        {/* Title */}
 
         <Typography
           variant="h6"
@@ -97,15 +114,20 @@ export default function DashboardCard({ dashboard }) {
         </Typography>
 
         <Typography
-          color="text.secondary"
           sx={{
+            color: "#64748B",
             mt: 1,
             mb: 3,
             flexGrow: 1,
+            lineHeight: 1.6,
           }}
         >
           {dashboard.description}
         </Typography>
+
+        <Divider sx={{ mb: 2 }} />
+
+        {/* Footer */}
 
         <Box
           display="flex"
@@ -113,17 +135,17 @@ export default function DashboardCard({ dashboard }) {
           alignItems="center"
         >
           <Chip
-            label={active ? "Online" : "Under Development"}
+            label={active ? "Online" : "Coming Soon"}
             color={active ? "success" : "warning"}
             sx={{
-              fontWeight: 600,
+              fontWeight: 700,
             }}
           />
 
           <Button
             variant="contained"
-            endIcon={<LaunchIcon />}
             disabled={!active}
+            endIcon={<LaunchIcon />}
             onClick={() => {
               if (active && dashboard.url) {
                 window.open(dashboard.url, "_blank");
@@ -132,8 +154,8 @@ export default function DashboardCard({ dashboard }) {
             sx={{
               borderRadius: 3,
               textTransform: "none",
-              px: 2.5,
               bgcolor: "#07269B",
+              px: 2.5,
 
               "&:hover": {
                 bgcolor: "#0A3EC9",

@@ -9,12 +9,14 @@ import {
 import Header from "../components/Header";
 import DashboardCard from "../components/DashboardCard";
 import StatCard from "../components/StatCard";
+import Footer from "../components/Footer";
+
 import dashboards from "../data/dashboards";
 
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import ConstructionIcon from "@mui/icons-material/Construction";
-import SyncIcon from "@mui/icons-material/Sync";
+import UpdateIcon from "@mui/icons-material/Update";
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -29,18 +31,12 @@ export default function Home() {
     d.title.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Active أولاً
+  // ترتيب الـ Online أولاً
   const sorted = [...filtered].sort((a, b) => {
     if (a.status === b.status) return 0;
     return a.status === "active" ? -1 : 1;
   });
-const activeDashboards = sorted.filter(
-  (d) => d.status === "active"
-);
 
-const comingDashboards = sorted.filter(
-  (d) => d.status === "coming"
-);
   // الإحصائيات
   const total = visibleDashboards.length;
 
@@ -63,95 +59,31 @@ const comingDashboards = sorted.filter(
         sx={{
           background: "#F4F7FC",
           minHeight: "100vh",
-          p: { xs: 2, md: 4 },
+          p: 4,
         }}
       >
-        {/* Hero */}
+        {/* Page Title */}
 
-        <Box
-          sx={{
-            mb: 5,
-            p: 5,
-            borderRadius: 5,
-            background:
-              "linear-gradient(135deg,#07269B 0%,#0B43D9 60%,#22C7D9 100%)",
-            color: "#fff",
-            boxShadow: "0 20px 45px rgba(7,38,155,.20)",
-          }}
-        >
+        <Box mb={5}>
           <Typography
-            variant="h3"
-            fontWeight={800}
+            variant="h4"
+            fontWeight={700}
+            color="#07269B"
           >
-            ARRIVE Executive Platform
+            Executive Dashboards
           </Typography>
 
           <Typography
-            sx={{
-              mt: 1,
-              opacity: .9,
-              fontSize: 18,
-            }}
+            color="text.secondary"
+            mt={1}
           >
-            Enterprise Analytics & Executive Control Tower
+            Central access to all ARRIVE executive dashboards.
           </Typography>
-
-          <Box
-            display="flex"
-            gap={2}
-            flexWrap="wrap"
-            mt={4}
-          >
-            <Box
-              sx={{
-                bgcolor: "rgba(255,255,255,.15)",
-                px: 2,
-                py: 1,
-                borderRadius: 3,
-              }}
-            >
-              📊 Analytics
-            </Box>
-
-            <Box
-              sx={{
-                bgcolor: "rgba(255,255,255,.15)",
-                px: 2,
-                py: 1,
-                borderRadius: 3,
-              }}
-            >
-              🚚 Operations
-            </Box>
-
-            <Box
-              sx={{
-                bgcolor: "rgba(255,255,255,.15)",
-                px: 2,
-                py: 1,
-                borderRadius: 3,
-              }}
-            >
-              🤖 AI Ready
-            </Box>
-
-            <Box
-              sx={{
-                bgcolor: "rgba(255,255,255,.15)",
-                px: 2,
-                py: 1,
-                borderRadius: 3,
-              }}
-            >
-              📈 Executive Insights
-            </Box>
-          </Box>
         </Box>
 
-        {/* Stats */}
+        {/* Statistics */}
 
         <Grid container spacing={3} mb={5}>
-
           <Grid item xs={12} sm={6} md={3}>
             <StatCard
               icon={<SpaceDashboardIcon />}
@@ -181,13 +113,12 @@ const comingDashboards = sorted.filter(
 
           <Grid item xs={12} sm={6} md={3}>
             <StatCard
-              icon={<SyncIcon />}
+              icon={<UpdateIcon />}
               title="Version"
-              value="V2.0"
+              value="2.0"
               color="#22C7D9"
             />
           </Grid>
-
         </Grid>
 
         {/* Dashboards */}
@@ -215,6 +146,7 @@ const comingDashboards = sorted.filter(
           ))}
         </Grid>
 
+        <Footer />
       </Box>
     </>
   );

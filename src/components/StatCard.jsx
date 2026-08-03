@@ -1,67 +1,83 @@
-import { Paper, Typography, Box } from "@mui/material";
+import {
+  Paper,
+  Typography,
+  Box,
+} from "@mui/material";
 
 export default function StatCard({
-    icon,
-    title,
-    value,
-    color
+  icon,
+  title,
+  value,
+  color,
 }) {
+  return (
+    <Paper
+      elevation={0}
+      sx={{
+        p: 3,
+        borderRadius: 4,
+        border: "1px solid #E5E7EB",
+        background: "#FFFFFF",
+        transition: "0.3s",
+        height: "100%",
 
-    return (
+        "&:hover": {
+          transform: "translateY(-6px)",
+          boxShadow: "0 12px 28px rgba(0,0,0,.08)",
+          borderColor: color,
+        },
+      }}
+    >
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        mb={3}
+      >
+        <Box
+          sx={{
+            width: 56,
+            height: 56,
+            borderRadius: 3,
+            bgcolor: color,
+            color: "#fff",
 
-        <Paper
-            elevation={2}
-            sx={{
-                p:3,
-                borderRadius:4,
-                height:140,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
 
-                display:"flex",
-                flexDirection:"column",
-                justifyContent:"space-between",
-
-                transition:".25s",
-
-                "&:hover":{
-                    transform:"translateY(-6px)",
-                    boxShadow:8
-                }
-            }}
+            "& svg": {
+              fontSize: 30,
+            },
+          }}
         >
+          {icon}
+        </Box>
 
-            <Box
-                sx={{
-                    width:48,
-                    height:48,
-                    borderRadius:3,
-                    bgcolor:color,
-                    display:"flex",
-                    alignItems:"center",
-                    justifyContent:"center",
-                    color:"#fff",
-                    fontSize:24
-                }}
-            >
-                {icon}
-            </Box>
+        <Typography
+          variant="h3"
+          fontWeight={700}
+          color="#0F172A"
+        >
+          {value}
+        </Typography>
+      </Box>
 
-            <Box>
+      <Typography
+        variant="subtitle1"
+        fontWeight={600}
+        color="#334155"
+      >
+        {title}
+      </Typography>
 
-                <Typography
-                    variant="h4"
-                    fontWeight={700}
-                >
-                    {value}
-                </Typography>
-
-                <Typography color="text.secondary">
-                    {title}
-                </Typography>
-
-            </Box>
-
-        </Paper>
-
-    )
-
+      <Typography
+        variant="body2"
+        color="#94A3B8"
+        sx={{ mt: 0.5 }}
+      >
+        Real-time platform statistics
+      </Typography>
+    </Paper>
+  );
 }

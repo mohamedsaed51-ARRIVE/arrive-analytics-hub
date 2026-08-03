@@ -19,18 +19,23 @@ export default function Header({ search, setSearch }) {
       elevation={0}
       sx={{
         bgcolor: "#FFFFFF",
-        borderBottom: "1px solid #E5E7EB",
+        borderBottom: "1px solid #E2E8F0",
       }}
     >
       <Toolbar
         sx={{
-          minHeight: 86,
+          minHeight: 88,
           display: "flex",
           justifyContent: "space-between",
         }}
       >
         {/* Left */}
-        <Box display="flex" alignItems="center" gap={2.5}>
+
+        <Box
+          display="flex"
+          alignItems="center"
+          gap={2.5}
+        >
           <img
             src={logo}
             alt="ARRIVE"
@@ -49,22 +54,23 @@ export default function Header({ search, setSearch }) {
                 lineHeight: 1.1,
               }}
             >
-              ARRIVE Analytics Hub
+              ARRIVE Executive Platform
             </Typography>
 
             <Typography
               sx={{
                 color: "#64748B",
                 fontSize: 14,
-                mt: .5,
+                mt: 0.5,
               }}
             >
-              Enterprise Analytics Platform
+              Enterprise Dashboards & Executive Control
             </Typography>
           </Box>
         </Box>
 
         {/* Right */}
+
         <Box
           display="flex"
           alignItems="center"
@@ -81,13 +87,23 @@ export default function Header({ search, setSearch }) {
             }}
           />
 
+          <Chip
+            label="Version 2.0"
+            sx={{
+              bgcolor: "#EEF6FF",
+              color: "#07269B",
+              fontWeight: 700,
+              borderRadius: 3,
+            }}
+          />
+
           <TextField
             size="small"
             placeholder="Search dashboards..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             sx={{
-              width: 340,
+              width: 360,
 
               "& .MuiOutlinedInput-root": {
                 borderRadius: 3,
