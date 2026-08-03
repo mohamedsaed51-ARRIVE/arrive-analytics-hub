@@ -32,16 +32,14 @@ export default function StatCard({
         display="flex"
         justifyContent="space-between"
         alignItems="center"
-        mb={3}
       >
         <Box
           sx={{
-            width: 56,
-            height: 56,
+            width: 58,
+            height: 58,
             borderRadius: 3,
             bgcolor: color,
             color: "#fff",
-
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -63,21 +61,15 @@ export default function StatCard({
         </Typography>
       </Box>
 
-      <Typography
-        variant="subtitle1"
-        fontWeight={600}
-        color="#334155"
-      >
-        {title}
-      </Typography>
-
-      <Typography
-        variant="body2"
-        color="#94A3B8"
-        sx={{ mt: 0.5 }}
-      >
-        Real-time platform statistics
-      </Typography>
+      <Box mt={3}>
+        <Typography
+          variant="subtitle1"
+          fontWeight={700}
+          color="#334155"
+        >
+          {title}
+        </Typography>
+      </Box>
     </Paper>
   );
 }

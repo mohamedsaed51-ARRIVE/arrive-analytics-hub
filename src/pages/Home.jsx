@@ -16,7 +16,6 @@ import dashboards from "../data/dashboards";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import ConstructionIcon from "@mui/icons-material/Construction";
-import UpdateIcon from "@mui/icons-material/Update";
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -31,7 +30,7 @@ export default function Home() {
     d.title.toLowerCase().includes(search.toLowerCase())
   );
 
-  // ترتيب الـ Online أولاً
+  // ترتيب: Online أولاً
   const sorted = [...filtered].sort((a, b) => {
     if (a.status === b.status) return 0;
     return a.status === "active" ? -1 : 1;
@@ -62,7 +61,7 @@ export default function Home() {
           p: 4,
         }}
       >
-        {/* Page Title */}
+        {/* عنوان الصفحة */}
 
         <Box mb={5}>
           <Typography
@@ -70,21 +69,21 @@ export default function Home() {
             fontWeight={700}
             color="#07269B"
           >
-            Executive Dashboards
+            Dashboard Library
           </Typography>
 
           <Typography
             color="text.secondary"
             mt={1}
           >
-            Central access to all ARRIVE executive dashboards.
+            Access and manage all ARRIVE dashboards from one place.
           </Typography>
         </Box>
 
-        {/* Statistics */}
+        {/* الإحصائيات */}
 
         <Grid container spacing={3} mb={5}>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} md={4}>
             <StatCard
               icon={<SpaceDashboardIcon />}
               title="Dashboards"
@@ -93,7 +92,7 @@ export default function Home() {
             />
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} md={4}>
             <StatCard
               icon={<VerifiedIcon />}
               title="Online"
@@ -102,7 +101,7 @@ export default function Home() {
             />
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} md={4}>
             <StatCard
               icon={<ConstructionIcon />}
               title="Under Development"
@@ -110,18 +109,9 @@ export default function Home() {
               color="#F59E0B"
             />
           </Grid>
-
-          <Grid item xs={12} sm={6} md={3}>
-            <StatCard
-              icon={<UpdateIcon />}
-              title="Version"
-              value="2.0"
-              color="#22C7D9"
-            />
-          </Grid>
         </Grid>
 
-        {/* Dashboards */}
+        {/* عنوان القسم */}
 
         <Typography
           variant="h5"
@@ -130,6 +120,8 @@ export default function Home() {
         >
           Available Dashboards
         </Typography>
+
+        {/* الداشبوردات */}
 
         <Grid container spacing={3}>
           {sorted.map((dashboard) => (
