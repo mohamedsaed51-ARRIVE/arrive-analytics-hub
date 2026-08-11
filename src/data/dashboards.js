@@ -25,7 +25,7 @@ const dashboards = [
     title: "Fleet Dashboard",
     description: "Fleet Performance Dashboard",
    status: "active",
-    url: "https://fleet-new.vercel.app/",
+    url:"https://fleet-new.vercel.app/",
   },
   {
     id: 4,
