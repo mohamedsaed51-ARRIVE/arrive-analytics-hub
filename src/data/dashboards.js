@@ -31,6 +31,16 @@ const dashboards = [
   },
   {
     id: 4,
+    category: "Operations",
+    icon: "firstmile",
+    title: "First Mile Dashboard",
+    description: "First Mile Operations Dashboard",
+    status: "active",
+    visible: true,
+    url: "https://arrive-first-mile-dashboard.vercel.app/",
+  },
+  {
+    id: 5,
     category: "Management",
     icon: "kpi",
     title: "KPI Dashboard",
@@ -40,7 +50,7 @@ const dashboards = [
     url: "",
   },
   {
-    id: 5,
+    id: 6,
     category: "AI",
     icon: "ai",
     title: "AI Insights",
@@ -50,7 +60,7 @@ const dashboards = [
     url: "",
   },
   {
-    id: 6,
+    id: 7,
     category: "Customer Experience",
     icon: "support",
     title: "Complaints Dashboard",
