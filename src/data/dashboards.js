@@ -6,7 +6,7 @@ const dashboards = [
     title: "Branch Inventory",
     description: "Daily Branch Inventory Audit",
     status: "coming",
-      visible: false,
+    visible: false,
     url: "https://branch-inventory.vercel.app",
   },
   {
@@ -16,6 +16,7 @@ const dashboards = [
     title: "Shipment Age",
     description: "Shipment Age Analysis",
     status: "coming",
+    visible: true,
     url: "",
   },
   {
@@ -24,8 +25,9 @@ const dashboards = [
     icon: "fleet",
     title: "Fleet Dashboard",
     description: "Fleet Performance Dashboard",
-   status: "active",
-    url:"https://fleet-new.vercel.app/",
+    status: "active",
+    visible: true,
+    url: "https://fleet-new.vercel.app/",
   },
   {
     id: 4,
@@ -34,7 +36,8 @@ const dashboards = [
     title: "KPI Dashboard",
     description: "Executive KPI Dashboard",
     status: "coming",
-      visible: false,
+    visible: false,
+    url: "",
   },
   {
     id: 5,
@@ -43,7 +46,8 @@ const dashboards = [
     title: "AI Insights",
     description: "Executive AI Analytics",
     status: "coming",
-      visible: false,
+    visible: false,
+    url: "",
   },
   {
     id: 6,
@@ -51,8 +55,9 @@ const dashboards = [
     icon: "support",
     title: "Complaints Dashboard",
     description: "Customer Complaints Dashboard",
-   status: "active",
-  url: "https://arrive-complaints-dashboard.vercel.app/",
+    status: "active",
+    visible: true,
+    url: "https://arrive-complaints-dashboard.vercel.app/",
   },
 ];
 
