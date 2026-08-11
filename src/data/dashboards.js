@@ -24,8 +24,8 @@ const dashboards = [
     icon: "fleet",
     title: "Fleet Dashboard",
     description: "Fleet Performance Dashboard",
-   status: "coming",
-    url: "",
+   status: "active",
+    url: "https://arrive-analytics-gxl5z2zs7-arrive2.vercel.app",
   },
   {
     id: 4,
