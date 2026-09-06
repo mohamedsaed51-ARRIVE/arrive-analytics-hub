@@ -5,9 +5,9 @@ const dashboards = [
     icon: "inventory",
     title: "Branch Inventory",
     description: "Daily Branch Inventory Audit",
-    status: "coming",
-    visible: false,
-    url: "https://branch-inventory.vercel.app",
+    status: "active",
+    visible: true,
+    url: "https://opration-d.vercel.app/",
   },
   {
     id: 2,
