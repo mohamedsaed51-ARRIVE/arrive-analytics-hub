@@ -15,6 +15,9 @@ import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import AssignmentReturnIcon from "@mui/icons-material/AssignmentReturn";
+import AltRouteIcon from "@mui/icons-material/AltRoute";
+import FactCheckIcon from "@mui/icons-material/FactCheck";
 
 function getIcon(name) {
   switch (name) {
@@ -35,6 +38,15 @@ function getIcon(name) {
 
     case "support":
       return <SupportAgentIcon sx={{ fontSize: 34 }} />;
+
+    case "returns":
+      return <AssignmentReturnIcon sx={{ fontSize: 34 }} />;
+
+    case "middlemile":
+      return <AltRouteIcon sx={{ fontSize: 34 }} />;
+
+    case "audit":
+      return <FactCheckIcon sx={{ fontSize: 34 }} />;
 
     default:
       return <AnalyticsIcon sx={{ fontSize: 34 }} />;

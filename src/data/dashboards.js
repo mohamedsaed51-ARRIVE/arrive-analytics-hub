@@ -69,6 +69,36 @@ const dashboards = [
     visible: true,
     url: "https://arrive-complaints-dashboard.vercel.app/",
   },
+  {
+    id: 8,
+    category: "Operations",
+    icon: "returns",
+    title: "Returns Dashboard",
+    description: "Returned Shipments (RTO) Dashboard",
+    status: "active",
+    visible: true,
+    url: "https://arrive-returns-dashboard.vercel.app/",
+  },
+  {
+    id: 9,
+    category: "Operations",
+    icon: "middlemile",
+    title: "Middle Mile Dashboard",
+    description: "Middle Mile Operations Dashboard",
+    status: "active",
+    visible: true,
+    url: "https://middle-mile.vercel.app/",
+  },
+  {
+    id: 10,
+    category: "Audit",
+    icon: "audit",
+    title: "Operations Audit",
+    description: "Operations Audit Dashboard",
+    status: "active",
+    visible: true,
+    url: "https://operations-audit-xi.vercel.app/",
+  },
 ];
 
 export default dashboards;

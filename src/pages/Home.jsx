@@ -83,7 +83,7 @@ export default function Home() {
         {/* الإحصائيات */}
 
         <Grid container spacing={3} mb={5}>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <StatCard
               icon={<SpaceDashboardIcon />}
               title="Dashboards"
@@ -92,7 +92,7 @@ export default function Home() {
             />
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <StatCard
               icon={<VerifiedIcon />}
               title="Online"
@@ -101,7 +101,7 @@ export default function Home() {
             />
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <StatCard
               icon={<ConstructionIcon />}
               title="Under Development"
@@ -126,11 +126,7 @@ export default function Home() {
         <Grid container spacing={3}>
           {sorted.map((dashboard) => (
             <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              lg={3}
+              size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
               key={dashboard.id}
             >
               <DashboardCard dashboard={dashboard} />
