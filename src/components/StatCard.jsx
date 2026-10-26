@@ -28,11 +28,7 @@ export default function StatCard({
         },
       }}
     >
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-      >
+      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <Box
           sx={{
             width: 58,
@@ -53,20 +49,14 @@ export default function StatCard({
         </Box>
 
         <Typography
-          variant="h3"
-          fontWeight={700}
-          color="#0F172A"
-        >
+          variant="h3" sx={{ fontWeight: 700, color: "#0F172A" }}>
           {value}
         </Typography>
       </Box>
 
-      <Box mt={3}>
+      <Box sx={{ mt: 3 }}>
         <Typography
-          variant="subtitle1"
-          fontWeight={700}
-          color="#334155"
-        >
+          variant="subtitle1" sx={{ fontWeight: 700, color: "#334155" }}>
           {title}
         </Typography>
       </Box>

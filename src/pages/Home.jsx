@@ -63,19 +63,32 @@ export default function Home() {
       >
         {/* عنوان الصفحة */}
 
-        <Box mb={5}>
-          <Typography
-            variant="h4"
-            fontWeight={700}
-            color="#07269B"
-          >
+        <Box
+          sx={{ mb: 4, 
+            p: { xs: 3, md: 4 },
+            borderRadius: 4,
+            color: "#fff",
+            background:
+              "linear-gradient(120deg,#07269B 0%,#0A3EC9 65%,#22C7D9 130%)",
+            position: "relative",
+            overflow: "hidden",
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              right: -60,
+              top: -80,
+              width: 260,
+              height: 260,
+              borderRadius: "50%",
+              background: "rgba(255,255,255,.08)",
+            },
+          }}
+        >
+          <Typography variant="h4" sx={{ fontWeight: 800 }}>
             Dashboard Library
           </Typography>
 
-          <Typography
-            color="text.secondary"
-            mt={1}
-          >
+          <Typography sx={{ mt: 1,  opacity: 0.9 }}>
             Access and manage all ARRIVE dashboards from one place.
           </Typography>
         </Box>
@@ -83,7 +96,7 @@ export default function Home() {
         {/* الإحصائيات */}
 
         <Grid container spacing={3} mb={5}>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <StatCard
               icon={<SpaceDashboardIcon />}
               title="Dashboards"
@@ -92,7 +105,7 @@ export default function Home() {
             />
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <StatCard
               icon={<VerifiedIcon />}
               title="Online"
@@ -101,7 +114,7 @@ export default function Home() {
             />
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <StatCard
               icon={<ConstructionIcon />}
               title="Under Development"
@@ -114,10 +127,7 @@ export default function Home() {
         {/* عنوان القسم */}
 
         <Typography
-          variant="h5"
-          fontWeight={700}
-          mb={3}
-        >
+          variant="h5" sx={{ fontWeight: 700, mb: 3 }}>
           Available Dashboards
         </Typography>
 
@@ -126,11 +136,7 @@ export default function Home() {
         <Grid container spacing={3}>
           {sorted.map((dashboard) => (
             <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              lg={3}
+              size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
               key={dashboard.id}
             >
               <DashboardCard dashboard={dashboard} />

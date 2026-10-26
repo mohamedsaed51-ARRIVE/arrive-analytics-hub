@@ -16,15 +16,15 @@ export default function Landing() {
         color: "#fff",
       }}
     >
-      <Typography variant="h2" fontWeight="bold">
+      <Typography variant="h2" sx={{ fontWeight: "bold" }}>
         ARRIVE
       </Typography>
 
-      <Typography mt={2} variant="h5">
+      <Typography variant="h5" sx={{ mt: 2 }}>
         Executive Analytics Platform
       </Typography>
 
-      <Typography mt={1} color="grey.400">
+      <Typography sx={{ mt: 1, color: "grey.400" }}>
         One Platform • All Executive Dashboards
       </Typography>
 

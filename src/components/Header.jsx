@@ -19,7 +19,7 @@ export default function Header({ search, setSearch }) {
       elevation={0}
       sx={{
         bgcolor: "#FFFFFF",
-        borderBottom: "1px solid #E2E8F0",
+        borderBottom: "3px solid #22C7D9",
       }}
     >
       <Toolbar
@@ -27,15 +27,14 @@ export default function Header({ search, setSearch }) {
           minHeight: 88,
           display: "flex",
           justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: 2,
+          py: 1,
         }}
       >
         {/* Left */}
 
-        <Box
-          display="flex"
-          alignItems="center"
-          gap={2.5}
-        >
+        <Box sx={{ display: "flex", alignItems: "center", gap: 2.5 }}>
           <img
             src={logo}
             alt="ARRIVE"
@@ -48,7 +47,7 @@ export default function Header({ search, setSearch }) {
           <Box>
             <Typography
               sx={{
-                fontSize: 26,
+                fontSize: { xs: 20, md: 26 },
                 fontWeight: 800,
                 color: "#07269B",
                 lineHeight: 1.1,
@@ -71,11 +70,7 @@ export default function Header({ search, setSearch }) {
 
         {/* Right */}
 
-        <Box
-          display="flex"
-          alignItems="center"
-          gap={2}
-        >
+        <Box sx={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 2 }}>
           <Chip
             icon={<VerifiedIcon />}
             label="System Online"
@@ -103,7 +98,7 @@ export default function Header({ search, setSearch }) {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             sx={{
-              width: 360,
+              width: { xs: "100%", sm: 360 },
 
               "& .MuiOutlinedInput-root": {
                 borderRadius: 3,
