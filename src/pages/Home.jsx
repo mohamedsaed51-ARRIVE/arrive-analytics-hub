@@ -63,19 +63,32 @@ export default function Home() {
       >
         {/* عنوان الصفحة */}
 
-        <Box mb={5}>
-          <Typography
-            variant="h4"
-            fontWeight={700}
-            color="#07269B"
-          >
+        <Box
+          sx={{ mb: 4, 
+            p: { xs: 3, md: 4 },
+            borderRadius: 4,
+            color: "#fff",
+            background:
+              "linear-gradient(120deg,#07269B 0%,#0A3EC9 65%,#22C7D9 130%)",
+            position: "relative",
+            overflow: "hidden",
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              right: -60,
+              top: -80,
+              width: 260,
+              height: 260,
+              borderRadius: "50%",
+              background: "rgba(255,255,255,.08)",
+            },
+          }}
+        >
+          <Typography variant="h4" sx={{ fontWeight: 800 }}>
             Dashboard Library
           </Typography>
 
-          <Typography
-            color="text.secondary"
-            mt={1}
-          >
+          <Typography sx={{ mt: 1,  opacity: 0.9 }}>
             Access and manage all ARRIVE dashboards from one place.
           </Typography>
         </Box>
@@ -114,10 +127,7 @@ export default function Home() {
         {/* عنوان القسم */}
 
         <Typography
-          variant="h5"
-          fontWeight={700}
-          mb={3}
-        >
+          variant="h5" sx={{ fontWeight: 700, mb: 3 }}>
           Available Dashboards
         </Typography>
 
